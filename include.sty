@@ -1,0 +1,63 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{include}[2020/06/15 Includes commonly-used packages for use in physics-related work.]
+
+% Options
+\DeclareOption{units}{\def\withunits{1}}
+\DeclareOption{chem}{\def\chem{1}}
+\DeclareOption{biblio}{\def\biblio{1}}
+\DeclareOption{exampleText}{\def\sample{1}}
+\DeclareOption*{\PackageWarning{include}{Unknown option '\CurrentOption'}}
+\ProcessOptions
+
+\RequirePackage{bm}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{bbold}
+\RequirePackage{amsthm}
+\RequirePackage{mathtools}
+\RequirePackage[makeroom]{cancel}
+\RequirePackage{physics}
+\RequirePackage{braket}
+\RequirePackage{bbold}
+\RequirePackage{tensor}
+%\RequirePackage{titling}
+\RequirePackage{fancyhdr}
+%\RequirePackage{mdframed}			%% Used in problem.cls
+%\RequirePackage{xparse}			%% Should only be required for other .sty / .cls files
+\RequirePackage{xcolor}
+\RequirePackage{color}
+\RequirePackage{transparent}
+%\RequirePackage{geometry}
+\RequirePackage{graphicx}
+\RequirePackage{subcaption}
+% For cropping imported images by percentage of width / height
+\RequirePackage[export]{adjustbox}
+\RequirePackage{epstopdf}
+\RequirePackage{hyperref}
+\RequirePackage[nameinlink]{cleveref}
+\RequirePackage{listings}
+\RequirePackage[inline]{enumitem}
+\RequirePackage{wrapfig}
+\RequirePackage{float}
+\RequirePackage[cal=boondox,bb=boondox]{mathalfa}
+\RequirePackage{sagetex}
+\RequirePackage{outlines}
+
+%% Resource-intensive packages
+\ifx\withunits\undefined
+\else\RequirePackage{siunitx}
+\fi
+\ifx\chem\undefined
+\else\RequirePackage{chemformula}
+\fi
+\ifx\biblio\undefined
+\else\RequirePackage[backend=bibtex,style=phys]{biblatex}
+\fi
+\ifx\sample\undefined
+\else\RequirePackage{lipsum}
+\fi
+
+%% For Inkscape diagram imports
+\RequirePackage{import}
+\RequirePackage{pdfpages}
+\RequirePackage{xcolor}

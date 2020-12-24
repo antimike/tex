@@ -1,0 +1,38 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{pytex-preamble}[2020/09/23 Adds python custom code to identify and include all matplotlib figures created in pylab environments.]
+
+\RequirePackage{pythontex}
+
+\begin{pythontexcustomcode}{pylab}
+    """begin=python"""
+    # From pytex documentation
+    # Basename for figures that will be created
+    pytex.basename ='_'.join([pytex.family, pytex.session, pytex.restart])
+
+    # Need to keep track of total number of figures in each session
+    pytex.fignum = 0
+
+    # The figure could be included in more sophisticated ways
+    # For example, a``figure``environment could be used
+    def after():
+	for num in get_fignums():
+	    fname = pytex.basename +'_fig'+ str(pytex.fignum) +'.pdf'
+	    pytex.fignum += 1
+	    figure(num)
+	    savefig(fname)
+	    pytex.add_created(fname)
+	    close(num)
+	    texcmd = r'''\begin{figure}
+		\centering
+		\def\svgwidth{#1\columnwidth}
+		\import{''' + fname + r'''}
+		\caption{''' + fname + r'''}
+		\label{''' + fname + r'''}
+	    \end{figure}'''
+
+	    print(textcmd)
+
+    # In this case, I'm taking the easy approach to redefine``open()``
+    pytex.after = after
+    """end=python"""
+\end{pythontexcustomcode}

@@ -1,0 +1,21 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{theorems}{2020/06/15 Provides common theorem environments.}
+
+\RequirePackage{amsthm}
+
+%% Theorem environments
+\newtheorem{theorem}{Theorem}[problem]
+\providecommand{\theoremautorefname}{Theorem}
+\newtheorem{proposition}{Proposition}[problem]
+\providecommand{\propositionautorefname}{Proposition}
+\newtheorem{corollary}{Corollary}[proposition]
+\providecommand{\corollaryautorefname}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[problem]
+\providecommand{\definitionautorefname}{Definition}
+\newtheorem{example}{Example}[problem]
+\providecommand{\exampleautorefname}{Example}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[problem]
+\providecommand{\remarkautorefname}{Remark}
+\newtheorem*{note}{Note}

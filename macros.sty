@@ -1,0 +1,32 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{macros}[2020/06/15 Macros and convenient abbreviations used in physics PSETs.]
+
+\RequirePackage{xparse}
+\RequirePackage{substr}
+
+%% Referencing and layout macros
+\newcommand{\eqnref}[1]{(\ref{#1})}
+\newcommand{\eqnremark}[1]{\textnormal{(#1)}}
+\newcommand{\nn}{\nonumber \\}
+
+%% Spacing / text style macros
+\newcommand{\tallphantom}{\phantom{\left( \int \dfrac{p_i^2}{2m} \right)}}
+\newcommand{\tx}[1]{\textnormal{#1}}
+\newcommand{\lqq}[1]{\quad \textnormal{#1}}
+\newcommand{\byeqnqq}[1]{\qquad \tx{(by } \eqnref{#1} \tx{)}}
+\newcommand{\byeqn}[1]{\tx{(by } \eqnref{#1} \tx{)}}
+\newcommand{\spacedimplies}{\Longrightarrow \quad}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\eff}{\mathcal{f}}
+
+%% Physics macros
+\newcommand{\cvec}[1]{\begin{pmatrix}#1\end{pmatrix}}
+\newcommand{\dprime}{\prime \prime}
+\newcommand{\til}[1]{\widetilde{#1}}
+
+\NewDocumentCommand{\sagefig}{ m v }{
+  \sageplot{#1, #2}
+}
+
+\newcommand*{\B}[1]{\ifmmode\bm{#1}\else\textbf{#1}\fi}

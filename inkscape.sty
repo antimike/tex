@@ -1,0 +1,10 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{inkscape}[2020/08/31 Provides a single command for including Inkscape figures in TeX documents.  Useful for live-TeXing lectures, e.g.]
+
+\newcommand{\incfig}[2][1]{%
+	\def\svgwidth{#1\columnwidth}
+	\import{./figures/}{#2.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
