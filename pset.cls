@@ -219,5 +219,6 @@
 \newtheorem{example}{Example}[problem]
 \providecommand{\exampleautorefname}{Example}
 \theoremstyle{remark}
+\newtheorem{remark*}{Remark}
 \newtheorem{remark}{Remark}[problem]
 \providecommand{\remarkautorefname}{Remark}
