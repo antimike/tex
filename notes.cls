@@ -36,10 +36,10 @@
   \headertitle{#2}
 }
 
-%\NewDocumentEnvironment{answer}{+b}{
-  %\begin{proof}[Answer]
-    %#1
-%}{\end{proof}}
+\NewDocumentEnvironment{answer}{+b}{
+  \begin{proof}[Answer]
+    #1
+}{\end{proof}}
 
 %% Hacky implementation of "switch" statement
 \newcommand{\ifequals}[3]{\ifthenelse{\equal{#1}{#2}}{#3}{}}
