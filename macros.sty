@@ -29,4 +29,11 @@
   \sageplot{#1, #2}
 }
 
+\makeatletter
+\def\@boldifydollars$#1$@{$\bm{#1}$}
+\def\@boldifynotdollars#1@{\ifmmode\bm{#1}\else\textbf{#1}\fi}
+\def\@boldify{\@ifnextchar${\@boldifydollars}{\@boldifynotdollars}}
 \newcommand*{\B}[1]{\ifmmode\bm{#1}\else\textbf{#1}\fi}
+\newcommand*{\boldify}[1]{\@boldify#1@}
+
+\makeatother
