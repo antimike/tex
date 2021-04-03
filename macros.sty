@@ -34,10 +34,13 @@
 }
 
 \makeatletter
+\def\@boldifybetter$#1$#2@{\boldify#1@\boldifynotdollars#2@}
 \def\@boldifydollars$#1$@{$\bm{#1}$}
 \def\@boldifynotdollars#1@{\ifmmode\bm{#1}\else\textbf{#1}\fi}
 \def\@boldify{\@ifnextchar${\@boldifydollars}{\@boldifynotdollars}}
+\def\boldificate{\@ifnextchar${\@boldifybetter}{\@boldifynotdollars}}
 \newcommand*{\B}[1]{\ifmmode\bm{#1}\else\textbf{#1}\fi}
 \newcommand*{\boldify}[1]{\@boldify#1@}
+\newcommand*{\boldifybetter}[1]{\@boldificate#1@}
 
 \makeatother
